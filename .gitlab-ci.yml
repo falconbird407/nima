@@ -1,0 +1,17 @@
+stages:
+ - build
+ - test
+
+Build Gatsby:
+ stage: build
+ script:
+  - npm install
+  - gatsby build
+ artifacts:
+  paths:
+   - public/
+
+Test Build:
+ stage: test
+ script:
+  - grep -q Gatsby ./public/index.html
